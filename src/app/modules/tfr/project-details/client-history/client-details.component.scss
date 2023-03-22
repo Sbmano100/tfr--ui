@@ -1,0 +1,52 @@
+.demo-table {
+  width: 100%;
+}
+
+.demo-button-container {
+  padding-bottom: 16px;
+}
+
+.demo-button+.demo-button {
+  margin-left: 8px;
+}
+
+.client-details {
+  min-height: calc(100vh - 143px);
+}
+
+.det-cell {
+  padding: 33px;
+}
+
+.det-cell span {
+  font-weight: 600;
+}
+
+.mat-header-cell {
+  color: black;
+  font-size: 15px;
+}
+
+.client-info-table {
+  background-color: #E5E7E9;
+  border: 1px;
+  padding: 5px;
+  font: 24px/36px;
+  height: auto;
+}
+
+.row {
+  --bs-gutter-x: 0;
+}
+
+.table-row-header {
+  cursor: default;
+}
+
+.table-row-list {
+  cursor: pointer;
+}
+
+.table-row-list:hover {
+  background-color: #D5D8DC;
+}

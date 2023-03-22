@@ -1,0 +1,32 @@
+.demo-table {
+    width: 100%;
+}
+
+.demo-button-container {
+    padding-bottom: 16px;
+}
+
+.demo-button+.demo-button {
+    margin-left: 8px;
+}
+
+.invoice-hist {
+    min-height: calc(100vh - 143px);
+}
+
+.mat-header-cell {
+    color: black;
+    font-size: 15px;
+}
+
+.table-row-header {
+    cursor: default;
+}
+
+.table-row-list {
+    cursor: pointer;
+}
+
+.table-row-list:hover {
+    background-color: #D5D8DC;
+}

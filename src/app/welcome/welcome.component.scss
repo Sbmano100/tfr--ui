@@ -1,0 +1,16 @@
+.bg{
+    min-height: calc(100vh - 142px);
+    background-image: url('../../assets/wp.jpg');
+    background-size: cover;
+    background-position: 0%;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+h1{
+    font-size: 60px;
+    padding-top: 80px;
+}
+.orange{
+    color: black;
+    text-shadow: -1px 3px 5px rgba(241,160,0,0.81);
+}

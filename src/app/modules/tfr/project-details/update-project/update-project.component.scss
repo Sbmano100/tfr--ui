@@ -1,0 +1,23 @@
+.table {
+    text-align: center;
+}
+
+.update-project{
+    min-height: calc(100vh - 143px);
+}
+
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+    border-style: none;
+    padding: 20px;
+}
+
+#rag2 {
+    height: 30px;
+    width: auto;
+    padding-left: 5px;
+}

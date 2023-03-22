@@ -1,0 +1,76 @@
+<div class="container align">
+    <div class="row align-items-center justify-content-center mt-4 mb-4">
+        <div class="col-md-6 card shadow pt-3 pb-3 px-4">
+            <h3 class="d-flex justify-content-center">Client</h3>
+            <form [formGroup]="addclientForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Client Name</label>
+                    <span *ngIf="addclientForm.get('name')?.invalid && addclientForm.get('name')?.touched" class="red">
+                        Client Name Required
+                    </span>
+                    <input type="text" class="form-control" formControlName="name"
+                        [class.warning]="addclientForm.get('name')?.invalid && addclientForm.get('name')?.touched">
+                </div>
+
+                <div class="mb-3">
+                    <label for="emp_name" class="form-label">Employee Name</label>
+                    <span *ngIf="addclientForm.get('emp_name')?.invalid && addclientForm.get('emp_name')?.touched"
+                        class="red">
+                        Employee Name Required
+                    </span>
+                    <input type="text" class="form-control" formControlName="emp_name"
+                        [class.warning]="addclientForm.get('emp_name')?.invalid && addclientForm.get('emp_name')?.touched">
+                </div>
+
+                <div class="mb-3">
+                    <label for="emp_email" class="form-label">Employee Email</label>
+                    <span *ngIf="addclientForm.get('emp_email')?.invalid && addclientForm.get('emp_email')?.touched"
+                        class="red">
+                        Employee Email Required
+                    </span>
+                    <input type="email" class="form-control" formControlName="emp_email"
+                        [class.warning]="addclientForm.get('emp_email')?.invalid && addclientForm.get('emp_email')?.touched">
+                </div>
+
+                <div class="mb-3">
+                    <label for="emp_id" class="form-label">Employee Id</label>
+                    <span *ngIf="addclientForm.get('emp_id')?.invalid && addclientForm.get('emp_id')?.touched"
+                        class="red">
+                        Id Required
+                    </span>
+                    <input type="number" class="form-control" formControlName="emp_id"
+                        [class.warning]="addclientForm.get('emp_id')?.invalid && addclientForm.get('emp_id')?.touched">
+                </div>
+
+                <div class="mb-3">
+                    <label for="emp_designation" class="form-label">Designation</label>
+                    <span
+                        *ngIf="addclientForm.get('emp_designation')?.invalid && addclientForm.get('emp_designation')?.touched"
+                        class="red">
+                        Designation Required
+                    </span>
+                    <select class="form-select" aria-label="Default select example" formControlName="emp_designation"
+                        [class.warning]="addclientForm.get('emp_designation')?.invalid && addclientForm.get('emp_designation')?.touched">
+                        <option *ngFor="let show of options" [value]="show.value">{{show.viewValue}}</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="client_location" class="form-label">Location</label>
+                    <span
+                        *ngIf="addclientForm.get('client_location')?.invalid && addclientForm.get('client_location')?.touched"
+                        class="red">
+                        location Required
+                    </span>
+                    <input type="text" class="form-control" formControlName="client_location"
+                        [class.warning]="addclientForm.get('client_location')?.invalid && addclientForm.get('client_location')?.touched">
+                </div>
+
+                <div class="mb-3">
+                    <button type="submit" class="btn" [disabled]="addclientForm.invalid"
+                        style="background-color:#e3832e;">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

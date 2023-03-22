@@ -1,0 +1,35 @@
+<div class="container align">
+    <div class="row align-items-center justify-content-center mt-4 mb-4">
+        <div class="col-md-6 card shadow pt-3 pb-3 px-4">
+            <h3 class="d-flex justify-content-center">Risk</h3>
+            <form [formGroup]="addriskForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="risk" class="form-label">Risk Name</label>
+                    <span *ngIf="addriskForm.get('risk')?.invalid && addriskForm.get('risk')?.touched" class="red">
+                        Name Required
+                    </span>
+                    <input type="text" class="form-control" formControlName="risk"
+                        [class.warning]="addriskForm.get('risk')?.invalid && addriskForm.get('risk')?.touched">
+                </div>
+
+                <div class="mb-3">
+                    <label for="start_date" class="form-label">Start Date</label>
+                    <span
+                        *ngIf="addriskForm.get('start_date')?.invalid && addriskForm.get('start_date')?.touched"
+                        class="red">
+                        Date Required
+                    </span>
+                    <input type="date" class="form-control" formControlName="start_date"
+                        [class.warning]="addriskForm.get('start_date')?.invalid && addriskForm.get('start_date')?.touched">
+                </div>
+
+                <div class="mb-3">
+                    <button type="submit" class="btn" [disabled]="addriskForm.invalid"
+                        style="background-color:#e3832e;">Submit</button>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+</div>

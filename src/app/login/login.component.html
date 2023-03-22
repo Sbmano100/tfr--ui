@@ -1,0 +1,33 @@
+
+      <div class="login container d-flex flex-col align-items-center justify-content-center h-100 ">
+        <div  class="card shadow" style="border-radius: 1rem;width: 325px;">
+          <div class="card-body px-4 text-center">
+              <div>
+                  <h3 class="mb-5 mt-3">Login</h3>
+              </div>
+              <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="input-group mb-4">
+              <span class="input-group-text fa fa-envelope" style="background-color:white; color: #e3832e;" id="addon-wrapping"></span>
+              <input type="email" id="email" placeholder="Username" class="form-control" formControlName="email"
+                          name="email" />
+            </div>
+
+            <div class="input-group mb-4">
+              <span class="input-group-text fa fa-lock" style="background-color:white; color: #e3832e;" id="addon-wrapping"></span>
+              <input type="password" id="password" placeholder="Password" class="form-control"
+                          formControlName="password" name="password" />
+            </div>
+            <button type="button" class="form-control btn btn-danger red" *ngIf="invalid">Invalid username or password.</button>
+            <button type="button" class="form-control btn btn-danger red" *ngIf="employee">Employee cannot access this portal</button>
+            <div>
+              <button class="btn w-100 mt-4 mb-5" style="background-color:#e3832e;" type="submit">Login</button>
+            </div>
+            <div>
+              
+            </div>
+          </form>
+          </div>
+          
+        </div>
+    </div>
+

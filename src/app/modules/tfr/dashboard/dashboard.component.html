@@ -1,0 +1,76 @@
+<!-- <p>dashboard works!</p> -->
+<div class="dashboard">
+    <nav id="navbar-project" class="navbar bg-secondary p-3">
+        <form class="" (keyup)="searchProject()">
+            <input type="search" class="form-control form-control-dark" id="search-bar" placeholder="Search Project..."
+                aria-label="Search">
+        </form>
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <button [class.show]="!showaddproject" (click)="toAddProject()" class="btn-primary add-project">Add Project</button>
+            </li>
+        </ul>
+    </nav>
+    <div class="mat-elevation-z8 project-list bg" tabindex="0">
+        <table mat-table [dataSource]="projectInfo">
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef class="table-cell"> No. </th>
+                <td mat-cell *matCellDef="let element = index" class="table-cell"> {{element + 1}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef class="table-cell"> Project Name </th>
+                <td mat-cell *matCellDef="let element" class="table-cell"> {{element.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="start_date">
+                <th mat-header-cell *matHeaderCellDef class="table-cell"> Start Date </th>
+                <td mat-cell *matCellDef="let element" class="table-cell"> {{element.start_date}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="end_date">
+                <th mat-header-cell *matHeaderCellDef class="table-cell"> End Date </th>
+                <td mat-cell *matCellDef="let element" class="table-cell"> {{element.end_date}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="client.name">
+                <th mat-header-cell *matHeaderCellDef class="table-cell"> Client </th>
+                <td mat-cell *matCellDef="let element" class="table-cell"> {{element.client.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="division.name">
+                <th mat-header-cell *matHeaderCellDef class="table-cell"> Division </th>
+                <td mat-cell *matCellDef="let element" class="table-cell"> {{element.division.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="superDepartment.name">
+                <th mat-header-cell *matHeaderCellDef class="table-cell"> Super Department </th>
+                <td mat-cell *matCellDef="let element" class="table-cell"> {{element.superDepartment.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="department.name">
+                <th mat-header-cell *matHeaderCellDef class="table-cell"> Department </th>
+                <td mat-cell *matCellDef="let element" class="table-cell"> {{element.department.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="rag_status">
+                <th mat-header-cell *matHeaderCellDef class="table-cell"> RAG Status </th>
+                <td mat-cell *matCellDef="let element = index" class="table-cell"><img id="rag"
+                        [attr.src]="projectInfo[element].rag_status" alt=""></td>
+            </ng-container>
+
+            <ng-container matColumnDef="invoicing_status">
+                <th mat-header-cell *matHeaderCellDef class="table-cell"> Invoicing Status </th>
+                <td mat-cell *matCellDef="let element" class="table-cell"> {{element.invoicing_status}} </td>
+            </ng-container>
+
+            <tr class="table-row-header table-row" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr (click)="toProjectDetails(row.id)" class="table-row table-row-list" mat-row
+                *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons 
+                 aria-label="Select page of periodic elements">
+         </mat-paginator> -->
+    </div>
+</div>

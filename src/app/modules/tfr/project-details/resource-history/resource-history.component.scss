@@ -1,0 +1,61 @@
+.resource-history {
+    min-height: calc(100vh - 143px);
+}
+
+.det-cell {
+    padding: 33px;
+}
+
+.det-cell span {
+    font-weight: 600;
+}
+
+.remarks {
+    margin-left: 37px;
+}
+
+.demo-table {
+    width: 100%;
+}
+
+.mat-header-cell {
+    color: black;
+    font-size: 15px;
+}
+
+.resource-his-table {
+    background-color: #E5E7E9;
+    border: 1px;
+    padding: 5px;
+    font: 24px/36px;
+    width: auto;
+}
+
+#navbar-res {
+    background-color: #C4C4C4;
+}
+
+.row {
+    --bs-gutter-x: 0;
+    width: 97.5%;
+}
+
+.norm-p li:hover {
+    cursor: pointer;
+    color: blue;
+}
+
+.head-p li:hover {
+    cursor: pointer;
+    color: blue;
+}
+
+.lead-p li:hover {
+    cursor: pointer;
+    color: blue;
+}
+
+ul {
+    // list-style: none;    
+    padding: 0;
+}

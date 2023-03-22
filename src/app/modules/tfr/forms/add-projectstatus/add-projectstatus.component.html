@@ -1,0 +1,39 @@
+<div class="container align ">
+    <div class="row align-items-center justify-content-center mt-4 mb-4">
+        <div class="col-md-6 card shadow pt-3 pb-3 px-4">
+            <h3 class="d-flex justify-content-center">Project Status</h3>
+            <form [formGroup]="addprojectstatusForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="status_type" class="form-label">Status Type</label>
+                    <span
+                        *ngIf="addprojectstatusForm.get('status_type')?.invalid && addprojectstatusForm.get('status_type')?.touched"
+                        class="red">
+                        Type Required
+                    </span>
+                    <select class="form-select" aria-label="Default select example" formControlName="status_type"
+                        [class.warning]="addprojectstatusForm.get('status_type')?.invalid && addprojectstatusForm.get('status_type')?.touched">
+                        <option *ngFor="let show of options" [value]="show.value">{{show.viewValue}}</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="status" class="form-label">Status</label>
+                    <span
+                        *ngIf="addprojectstatusForm.get('status')?.invalid && addprojectstatusForm.get('status')?.touched"
+                        class="red">
+                        Status Required
+                    </span>
+                    <input type="text" class="form-control" formControlName="status"
+                        [class.warning]="addprojectstatusForm.get('status')?.invalid && addprojectstatusForm.get('status')?.touched">
+                </div>
+
+                <div class="mb-3">
+                    <button type="submit" class="btn" [disabled]="addprojectstatusForm.invalid"
+                        style="background-color:#e3832e;">Submit</button>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+</div>

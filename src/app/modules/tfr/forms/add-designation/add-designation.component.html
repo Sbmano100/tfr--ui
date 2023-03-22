@@ -1,0 +1,33 @@
+<div class="container align ">
+    <div class="row align-items-center justify-content-center mt-4 mb-4">
+        <div class="col-md-6 card shadow pt-3 pb-3 px-4">
+            <h3 class="d-flex justify-content-center">Designation</h3>
+            <form [formGroup]="adddesignationForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="designation_name" class="form-label">Designation Name</label>
+                    <span *ngIf="adddesignationForm.get('designation_name')?.invalid && adddesignationForm.get('designation_name')?.touched" class="red">
+                        Name Required
+                    </span>
+                    <input type="text" class="form-control"  formControlName="designation_name"
+                        [class.warning]="adddesignationForm.get('designation_name')?.invalid && adddesignationForm.get('designation_name')?.touched">
+                </div>
+
+                <div class="mb-3">
+                    <label for="designation_code" class="form-label">Designation Code</label>
+                    <span *ngIf="adddesignationForm.get('designation_code')?.invalid && adddesignationForm.get('designation_code')?.touched"
+                        class="red">
+                        code Required
+                    </span>
+                    <input type="number" class="form-control" formControlName="designation_code"
+                        [class.warning]="adddesignationForm.get('designation_code')?.invalid && adddesignationForm.get('designation_code')?.touched">
+                </div>
+
+                <div class="mb-3">
+                    <button type="submit" class="btn" [disabled]="adddesignationForm.invalid" style="background-color:#e3832e;">Submit</button>
+                </div>
+            </form>
+          
+
+        </div>
+    </div>
+</div>

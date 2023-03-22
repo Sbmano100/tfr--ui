@@ -1,0 +1,47 @@
+.risk-details {
+  min-height: calc(100vh - 143px);
+}
+
+.mat-header-cell {
+  color: black;
+  font-size: 15px;
+}
+
+.demo-table {
+  width: 100%;
+}
+
+.demo-button-container {
+  padding-bottom: 16px;
+}
+
+.demo-button+.demo-button {
+  margin-left: 8px;
+}
+
+.table-row-header {
+  cursor: default;
+}
+
+.table-row-list {
+  cursor: pointer;
+}
+
+.table-row-list:hover {
+  background-color: #D5D8DC;
+}
+
+.risk-list {
+  background-color: #E5E7E9;
+  border: 1px;
+  padding: 5px;
+  font: 24px/36px;
+  width: auto;
+}
+
+#navbar-risk {
+  background-color: #C4C4C4;
+}
+.show{
+  display: none;
+}

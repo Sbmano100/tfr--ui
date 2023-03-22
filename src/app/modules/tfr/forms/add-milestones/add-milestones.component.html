@@ -1,0 +1,43 @@
+<div class="container align">
+    <div class="row align-items-center justify-content-center mt-4 mb-4">
+        <div class="col-md-6 card shadow pt-3 pb-3 px-4">
+            <h3 class="d-flex justify-content-center">MileStone</h3>
+            <form [formGroup]="addmilestoneForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <span *ngIf="addmilestoneForm.get('name')?.invalid && addmilestoneForm.get('name')?.touched" class="red">
+                        Name Required
+                    </span>
+                    <input type="text" class="form-control"  formControlName="name"
+                        [class.warning]="addmilestoneForm.get('name')?.invalid && addmilestoneForm.get('name')?.touched">
+                </div>
+
+                <div class="mb-3">
+                    <label for="start_date" class="form-label">Start Date</label>
+                    <span *ngIf="addmilestoneForm.get('start_date')?.invalid && addmilestoneForm.get('start_date')?.touched"
+                        class="red">
+                        code Required
+                    </span>
+                    <input type="date" class="form-control" formControlName="start_date"
+                        [class.warning]="addmilestoneForm.get('start_date')?.invalid && addmilestoneForm.get('start_date')?.touched">
+                </div>
+
+                <div class="mb-3">
+                    <label for="status" class="form-label">Weightage</label>
+                    <span *ngIf="addmilestoneForm.get('weightage')?.invalid && addmilestoneForm.get('weightage')?.touched"
+                        class="red">
+                        weightage Required
+                    </span>
+                    <input type="text" class="form-control" formControlName="weightage"
+                        [class.warning]="addmilestoneForm.get('weightage')?.invalid && addmilestoneForm.get('weightage')?.touched">
+                </div>
+
+                <div class="mb-3">
+                    <button type="submit" class="btn" [disabled]="addmilestoneForm.invalid" style="background-color:#e3832e;">Submit</button>
+                </div>
+            </form>
+          
+
+        </div>
+    </div>
+</div>

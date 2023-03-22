@@ -1,0 +1,107 @@
+<div class="resource-history">
+  <div class="row">
+    <div class="det-cell col-3"><span>Name:</span><br>{{ resourceInfo?.name }}</div>
+    <div class="det-cell col-3"><span>Emp. Id:</span><br>{{ resourceInfo?.emp_id }}</div>
+    <div class="det-cell col-3"><span>Email Id:</span><br>{{ resourceInfo?.email }}</div>
+    <div class="det-cell col-3"><span>Designation:</span><br>{{resourceInfo?.resourceList.designation_name}}</div>
+  </div>
+  <div class="row">
+    <div class="det-cell col-3 norm-p"><span>Current Projects:</span><br>
+      <ul>
+        <li #getId (click)="toProject(getId)" *ngFor="let p of resourceInfo?.project"><span class="d-none">{{p?.id}}</span>{{ p?.name }}</li>
+      </ul>
+    </div>
+    <div class="det-cell col-3 norm-s"><span>Start Dates:</span><br>
+      <ul>
+        <li *ngFor="let p of resourceInfo?.project">{{ p?.start_date }}</li>
+      </ul>
+    </div>
+    <div class="det-cell col-3 norm-e"><span>End Dates:</span><br>
+      <ul>
+        <li *ngFor="let p of resourceInfo?.project">{{ p?.end_date }}</li>
+      </ul>
+    </div>
+    <div class="det-cell col-3 head-p d-none"><span>Current Projects:</span><br>
+      <ul>
+        <li #getId (click)="toProject(getId)" *ngFor="let p of resourceInfo?.projectListForDep"><span class="d-none">{{p?.id}}</span>{{ p?.name }}</li>
+      </ul>
+    </div>
+    <div class="det-cell col-3 head-s d-none"><span>Start Dates:</span><br>
+      <ul>
+        <li *ngFor="let p of resourceInfo?.projectListForDep">{{ p?.start_date }}</li>
+      </ul>
+    </div>
+    <div class="det-cell col-3 head-e d-none"><span>End Dates:</span><br>
+      <ul>
+        <li *ngFor="let p of resourceInfo?.projectListForDep">{{ p?.end_date }}</li>
+      </ul>
+    </div>
+    <div class="det-cell col-3 lead-p d-none"><span>Current Projects:</span><br>
+      <ul>
+        <li #getId (click)="toProject(getId)" *ngFor="let p of resourceInfo?.projectListForLead"><span class="d-none">{{p?.id}}</span>{{ p?.name }}</li>
+      </ul>
+    </div>
+    <div class="det-cell col-3 lead-s d-none"><span>Start Dates:</span><br>
+      <ul>
+        <li *ngFor="let p of resourceInfo?.projectListForLead">{{ p?.start_date }}</li>
+      </ul>
+    </div>
+    <div class="det-cell col-3 lead-e d-none"><span>End Dates:</span><br>
+      <ul>
+        <li *ngFor="let p of resourceInfo?.projectListForLead">{{ p?.end_date }}</li>
+      </ul>
+    </div>
+    <div class="det-cell col-3"><span>Location:</span><br>{{ resourceInfo?.location }}</div>
+    <div class="row">
+      <div class="det-cell col-3 skill"><span>Skill:</span><br>{{ resourceInfo?.skill }}</div>
+      <div class="det-cell col-3"><span>Gender:</span><br>{{ resourceInfo?.gender }}</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="det-cell"><span>Remarks:</span></div>
+    <ol class="remarks">
+      <li *ngIf="resourceInfo?.remark">{{ resourceInfo?.remark }}</li>
+    </ol>
+  </div>
+  <div *ngIf="resourceHistory" class="resource-his-table">
+    <nav id="navbar-res" class="navbar p-3">
+      <h3>History</h3>
+    </nav>
+    <div *ngIf="resourceHistory" class="resource-list">
+      <table mat-table [dataSource]="resourceHistory" class="mat-elevation-z8 demo-table">
+
+        <ng-container matColumnDef="id">
+          <th   mat-header-cell *matHeaderCellDef>No.</th>
+          <td mat-cell *matCellDef="let element = index">{{element+1}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="resourceHistoryProject.name">
+          <th mat-header-cell *matHeaderCellDef>Project Name</th>
+          <td mat-cell *matCellDef="let element">{{element.resourceHistoryProject.name}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="resourceHistoryList.designation_name">
+          <th mat-header-cell *matHeaderCellDef>Designation</th>
+          <td mat-cell *matCellDef="let element">{{element.resourceHistoryList.designation_name}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="start_date">
+          <th mat-header-cell *matHeaderCellDef>Start Date</th>
+          <td mat-cell *matCellDef="let element">{{element.start_date}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="end_date">
+          <th mat-header-cell *matHeaderCellDef>Leave Date</th>
+          <td mat-cell *matCellDef="let element">{{element.end_date}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="remarks">
+          <th mat-header-cell *matHeaderCellDef>Remarks</th>
+          <td mat-cell *matCellDef="let element">{{element  .remarks}}</td>
+        </ng-container>
+
+        <tr class="table-row-header table-row" mat-header-row *matHeaderRowDef="displayResHisColumns"></tr>
+        <tr class="table-row-list table-row" mat-row *matRowDef="let row; columns: displayResHisColumns;"></tr>
+      </table>
+    </div>
+  </div>

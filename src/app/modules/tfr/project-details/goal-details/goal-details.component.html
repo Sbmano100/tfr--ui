@@ -1,0 +1,78 @@
+<div class="milestone-details">
+    <nav id="navbar-risk" class="navbar bg-secondary p-3">
+        <h3>Goals</h3>
+        <button [class.show]="!showaddgoal" (click)="addgoal()">
+            Add Goal
+        </button>
+    </nav>
+    <div *ngIf="goals" class="resource-list">
+        <table mat-table [dataSource]="goals" class="mat-elevation-z8 demo-table">
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef>No.</th>
+                <td mat-cell *matCellDef="let element = index">{{element+1}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef>Name</th>
+                <td mat-cell *matCellDef="let element">{{element.name}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="goal_description">
+                <th mat-header-cell *matHeaderCellDef>Description
+                <th>
+                <td mat-cell *matCellDef="let element">{{element.goal_description}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="start_date">
+                <th mat-header-cell *matHeaderCellDef>Start Date</th>
+                <td mat-cell *matCellDef="let element">{{element.start_date}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="end_date">
+                <th mat-header-cell *matHeaderCellDef>End Date</th>
+                <td mat-cell *matCellDef="let element">{{element.end_date}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="goal_status">
+                <th mat-header-cell *matHeaderCellDef>Status</th>
+                <td mat-cell *matCellDef="let element">{{element.goal_status}}</td>
+            </ng-container>
+
+            <ng-container  matColumnDef="edit">
+                <th [class.show]="!showupdategoal" mat-header-cell *matHeaderCellDef>Edit Goal Status</th>
+                <td mat-cell *matCellDef="let row">
+                    <button [class.show]="!showupdategoal" (click)="getGoalID(row.id)" type="button" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop2" class="btn bg-secondary text-white" mat-button>Edit</button>
+                </td>
+            </ng-container>
+
+            <tr class="table-row-header table-row" mat-header-row *matHeaderRowDef="displayGoalColumns"></tr>
+            <tr class="table-row-list table-row" mat-row *matRowDef="let row; columns: displayGoalColumns;"></tr>
+        </table>
+    </div>
+    <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Update Goal Status</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="goalsForm" (ngSubmit)="onGoalSubmit()">
+                        <div>
+                            <label for="goal_status" class="form-label">Goal Status</label>
+                            <select class="form-select" aria-label="Default select example" formControlName="goal_status">
+                                <option *ngFor="let show of options" [value]="show.value">{{show.viewValue}}</option>
+                              </select>
+                        </div>
+                        <div class="submit text-center mt-2">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

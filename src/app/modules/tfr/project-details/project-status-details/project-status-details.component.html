@@ -1,0 +1,40 @@
+<div class="project-status-details">
+    <nav class="nav-project-status bg-secondary navbar">
+        <h4 class="navbar-brand mb-0">Project Status</h4>
+        <button mat-raised-button class="demo-button" (click)="editprojectstatus()">
+            Add Project Status
+        </button>
+    </nav>
+    <div *ngIf="projStatus" class="st-list">
+        <h6 *ngIf="projStatus[0]" class="status-header pt-3">Resource Updates</h6>
+        <ol *ngIf="projStatus[0]">
+            <li class="status-list container-fluid" *ngFor="let status of projStatus[0], let i = index">
+                <div class="float-end">
+                    <span class="add">Added By: </span> {{ addedBy[0][i] }}
+                    <span class="add">Date: </span> {{ dateOfAdd[0][i] }}
+                </div>
+                <p>{{ projStatus[0][i] }}</p>
+            </li>
+        </ol>
+        <h6 *ngIf="projStatus[1]" class="status-header">Milestone Deliveries</h6>
+        <ol *ngIf="projStatus[1]">
+            <li class="status-list container-fluid" *ngFor="let status of projStatus[1], let i = index">
+                <div class="float-end">
+                    <span class="add">Added By: </span> {{ addedBy[1][i] }}
+                    <span class="add">Date: </span> {{ dateOfAdd[1][i] }}
+                </div>
+                <p>{{ projStatus[1][i] }}</p>
+            </li>
+        </ol>
+        <h6 *ngIf="projStatus[2]" class="status-header">Appreciation</h6>
+        <ol *ngIf="projStatus[2]" class="pb-3">
+            <li class="status-list container-fluid" *ngFor="let status of projStatus[2], let i = index">
+                <div class="float-end">
+                    <span class="add">Added By: </span> {{ addedBy[2][i] }}
+                    <span class="add ml-3">Date: </span> {{ dateOfAdd[2][i] }}
+                </div>
+                <p>{{ projStatus[2][i] }}</p>
+            </li>
+        </ol>
+    </div>
+</div>

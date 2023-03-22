@@ -1,0 +1,26 @@
+<div class="project-status">
+    <nav class="nav-project-status navbar">
+       <h4 class="navbar-brand mb-0 h1">Project Status</h4> 
+       <button (click)="toProjectStatusDetails()" class="btn btn-project-status btn-primary" type="submit">Project Status Details</button>
+    </nav>
+    <div *ngIf="projStatus" class="st-list">
+        <h6 *ngIf="projStatus[0]" class="status-header">Resource Updates</h6>
+        <ol *ngIf="projStatus[0]">
+            <li class="status-list" *ngFor="let status of projStatus[0]">
+                {{ status }}
+            </li>
+        </ol>
+        <h6 *ngIf="projStatus[1]" class="status-header">Milestone Deliveries</h6>
+        <ol *ngIf="projStatus[1]">
+            <li class="status-list" *ngFor="let status of projStatus[1]">
+                {{ status }}
+            </li>
+        </ol>
+        <h6 *ngIf="projStatus[2]" class="status-header">Appreciation</h6>
+        <ol *ngIf="projStatus[2]">
+            <li class="status-list" *ngFor="let status of projStatus[2]">
+                {{ status }}
+            </li>
+        </ol>
+    </div>
+</div>

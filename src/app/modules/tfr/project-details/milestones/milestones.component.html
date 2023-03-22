@@ -1,0 +1,24 @@
+<div class="mile">
+    <nav class="nav-mile navbar">
+        <h4 class="navbar-brand mb-0 h1">Milestones</h4>
+        <button (click)="toMileDetail()" class="btn btn-mile btn-primary" type="submit">Milestones Details</button>
+    </nav>
+      <table *ngIf="milestones" class="table mile-table">
+          <thead>
+            <tr>
+              <th class="id" scope="col">No.</th>
+              <th class="name" scope="col">Name</th>
+              <th class="weightage" scope="col">Weightage</th>
+              <th class="status" scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let mile of milestones, let i = index">
+              <th class="id" scope="row">{{ i+1 }}</th>
+              <td class="name">{{ mile.name }}</td>
+              <td class="weightage">{{ mile.weightage }}</td>
+              <td class="status">{{ mile.status }}</td>
+            </tr>
+          </tbody>
+        </table>
+</div>

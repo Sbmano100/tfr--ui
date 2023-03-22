@@ -1,0 +1,54 @@
+<div class="proj-det">
+    <div class="row">
+        <div class="col">
+            <nav class="nav project-det navbar">
+                <div class="container-fluid">
+                    <p class="navbar-brand mb-0 project-name">{{ ProjectDetail?.name }}</p>
+                    <div class="d-flex">
+                        <div class="stat"><span class="pro-status">RAG Status:</span><img id="rag" src="" alt=""></div>
+                        <div (click)="toInvoicingStatusHistory()" class="stat invoicing"><span class="pro-status">Invoice Status:</span> {{ProjectDetail?.invoicing_status}}</div>
+                        <button (click)="toProjectHistory()" class="btn btn-light history" type="submit">Project History</button>
+                        <button [class.show]="!showupdateproject" (click)="toUpdateProject()" class="btn btn-light update" type="submit">Update Project</button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 milestone">
+            <app-milestones></app-milestones>
+        </div>
+        <div class="col-6 details">
+            <div class="row">
+                <div class="det-cell col-3"><span>Client:</span><br>{{ProjectDetail?.client.name}}</div>
+                <div (click)="toDivProjects()" class="det-cell col-3 heads"><span>Division:</span><br>{{ProjectDetail?.division.name}}</div>
+                <div (click)="toSuperDeptProjects()" class="det-cell col-3 heads"><span>Super Dept.:</span><br>{{ProjectDetail?.superDepartment.name}}</div>
+                <div (click)="toDeptProjects()" class="det-cell col-3 heads"><span>Department:</span><br>{{ProjectDetail?.department.name}}</div>
+            </div>
+            <div class="row">
+                <div class="det-cell col-3"><span>Start Date:</span><br>{{ProjectDetail?.start_date}}</div>
+                <div class="det-cell col-3"><span>End Date:</span><br>{{ProjectDetail?.end_date}}</div>
+                <div class="det-cell col-3"><span>As per SOW:</span><br>{{ProjectDetail?.sow}}</div>
+                <div class="det-cell col-3"><span>Total Resources:</span><br>{{ProjectDetail?.resource.length}}</div>
+            </div>
+            <div class="row">
+                <div (click)="toClientHistory()" class="det-cell col-3 heads"><span>ED/MD:</span><br>{{ProjectDetail?.client.emp_name}}</div>
+                <div (click)="toDepHeadHistory()" class="det-cell col-3 heads"><span>Dept. Head:</span><br>{{ ProjectDetail?.depHead.name }}</div>
+                <div (click)="toTeamLeadHistory()" class="det-cell col-3 heads"><span>Lead:</span><br>{{ ProjectDetail?.projectLead.name }}</div>
+                <div (click)="toSPOCHistory()" class="det-cell col-3 heads"><span>SPOC:</span><br>{{ ProjectDetail?.spoc.name }}</div>
+            </div>
+        </div>
+        <div class="col-3 resources">
+            <app-resources></app-resources>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 risks">
+            <app-risks></app-risks>
+        </div>
+        <div class="col-6 col-project-status">
+            <app-project-status></app-project-status>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

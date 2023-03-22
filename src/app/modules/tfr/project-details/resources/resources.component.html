@@ -1,0 +1,24 @@
+<div class="reso">
+    <nav class="nav-reso navbar">
+        <h4 class="navbar-brand mb-0 h1">Resources</h4>
+        <button (click)="toResourceDetails()" class="btn btn-reso btn-primary" type="submit">Resource Details</button>
+    </nav>
+    <table *ngIf="resourceList" class="table reso-table">
+        <thead>
+          <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Name</th>
+            <th scope="col">Emp.Id</th>
+            <th scope="col">Skill</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let reso of resourceList, let i = index">
+            <th scope="row">{{ i+1 }}</th>
+            <td>{{ reso.name }}</td>
+            <td>{{ reso.emp_id }}</td>
+            <td>{{ reso.skill }}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>

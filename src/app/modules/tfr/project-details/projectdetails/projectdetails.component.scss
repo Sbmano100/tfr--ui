@@ -1,0 +1,80 @@
+.proj-det{
+    padding: 0;
+    min-height: calc(100vh - 146px);
+}
+
+.project-det{
+    background-color: #B7B7B7;
+    margin-bottom: 10px;
+    padding:auto 10px;
+    justify-content: end;
+}
+
+// .col, .col-6, .col-3, .col-9, .col-8, .col-4{
+//     border: 1px solid black;
+// }
+
+.milestone, .resources, .risks, .col-project-status{
+    max-height: 350px;
+    overflow-y: scroll;
+}
+
+.details{
+    text-align: center;
+}
+
+.det-cell{
+    padding: 33px;
+
+}
+
+.det-cell span{
+    font-weight: 600;
+}
+
+.project-name{
+    font-weight: 600;
+    text-align: center;
+}
+
+.update{
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.history{
+    margin-right: 20px;
+    font-weight: 500;
+}
+
+.row{
+    --bs-gutter-x: 0;
+}
+
+.pro-status{
+    font-weight: 600;
+}
+
+.stat{
+    margin-top: 7px;
+    margin-right: 30px;
+}
+
+.heads:hover{
+    cursor: pointer;
+    background-color: #FFDEB0;
+}
+
+#rag{
+    height: 30px;
+    width: auto;
+    padding-left: 5px;
+}
+
+.invoicing:hover{
+    cursor: pointer;
+    color: blue;
+}
+.show{
+    display: none;
+}

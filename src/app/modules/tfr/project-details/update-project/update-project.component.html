@@ -1,0 +1,107 @@
+<div class="update-project">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">No.</th>
+        <th scope="col">Fields</th>
+        <th scope="col">Current Value</th>
+        <th scope="col">Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Invoicing Status</td>
+        <td>{{ProjectDetail?.invoicing_status}}</td>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop4"
+          class="btn bg-secondary text-white">Edit Invoicing Status</button>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Rag Status</td>
+        <td><img id="rag2" src="" alt=""></td>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop5"
+          class="btn bg-secondary text-white">Edit Rag Status</button>
+      </tr>
+      <!-- <tr>
+            <th scope="row">6</th>
+            <td>End Date</td>
+            <td>{{ProjectDetail?.end_date}}</td>
+            <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop6"
+                class="btn bg-secondary text-white">Edit End Date</button>
+        </tr> -->
+    </tbody>
+  </table>
+
+  <div class="modal fade" id="staticBackdrop4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Update Invoicing Status</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="invoiceForm" (ngSubmit)="onInvSubmit()">
+            <div>
+              <label for="invoicing_status" class="form-label">Update Invoice Status</label>
+              <input type="text" class="form-control" placeholder="Completed, Pending or other"
+                formControlName="invoicing_status">
+            </div>
+            <div class="submit text-center mt-2">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="staticBackdrop5" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Update Rag Status</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="ragForm" (ngSubmit)="onRagSubmit()">
+            <div>
+              <label for="rag_status" class="form-label">Rag Status</label>
+              <!-- <input type="text" class="form-control" placeholder="Enter r, a or g" formControlName="rag_status"> -->
+              <select class="form-select" aria-label="Default select example" formControlName="rag_status"
+                [class.warning]="ragForm.get('status_type')?.invalid && ragForm.get('status_type')?.touched">
+                <option *ngFor="let show of options" [value]="show.value">{{show.viewValue}}</option>
+              </select>
+            </div>
+            <div class="submit text-center mt-2">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Update Remark</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="resourceForm" (ngSubmit)="onEndSubmit()">
+          <div>
+            <label for="remark" class="form-label">Remark</label>
+            <input type="text" class="form-control" formControlName="remark">
+          </div>
+          <div class="submit mt-2">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> -->

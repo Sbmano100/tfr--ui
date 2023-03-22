@@ -1,0 +1,36 @@
+// .material-icons{
+//    color: white;
+//    //background-color: none;
+//     line-height: 1.5;
+//     font-size: 29px;
+// }
+// .mat-menu-content {
+//     padding-bottom: 1px;
+//     padding-top:1px;
+// }.n
+// .mat-menu-content:not(:empty){
+//     padding-top: 0;
+//     padding-bottom: 0;
+// }
+
+.mat-menu-item{
+      line-height: 1px;
+      padding:2px;
+    text-align: center;
+}
+
+.fa-lg{
+    color: white;
+    //background-color: none;
+     line-height: 1.7;
+     font-size: 25px;
+     cursor: pointer;
+}
+
+::ng-deep .mat-menu-content {
+    padding: 0px;
+}
+.show{
+    display: none;
+}
+

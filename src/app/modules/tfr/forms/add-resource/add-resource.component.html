@@ -1,0 +1,101 @@
+<div class="container">
+    <div class="row align-items-center justify-content-center mt-4 mb-4">
+        <div class="col-md-6 card shadow pt-3 pb-3 px-4">
+            <h3 class="d-flex justify-content-center">Resource</h3>
+            <form [formGroup]="addresourceForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <span *ngIf="addresourceForm.get('name')?.invalid && addresourceForm.get('name')?.touched"
+                        class="red">
+                        Name Required
+                    </span>
+                    <input type="text" class="form-control" formControlName="name"
+                        [class.warning]="addresourceForm.get('name')?.invalid && addresourceForm.get('name')?.touched">
+                </div>
+
+                <div class="mb-3">
+                    <label for="emp_id" class="form-label">Employee Id</label>
+                    <span *ngIf="addresourceForm.get('emp_id')?.invalid && addresourceForm.get('emp_id')?.touched"
+                        class="red">
+                        Id Required
+                    </span>
+                    <input type="number" class="form-control" formControlName="emp_id"
+                        [class.warning]="addresourceForm.get('emp_id')?.invalid && addresourceForm.get('emp_id')?.touched">
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <span *ngIf="addresourceForm.get('email')?.invalid && addresourceForm.get('email')?.touched"
+                        class="red">
+                        Email Required
+                    </span>
+                    <input type="email" class="form-control" formControlName="email"
+                        [class.warning]="addresourceForm.get('email')?.invalid && addresourceForm.get('email')?.touched">
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <span *ngIf="addresourceForm.get('password')?.invalid && addresourceForm.get('password')?.touched"
+                        class="red">
+                        Password Required
+                    </span>
+                    <input type="password" class="form-control" formControlName="password"
+                        [class.warning]="addresourceForm.get('password')?.invalid && addresourceForm.get('password')?.touched">
+                </div>
+
+                <div class="mb-3">
+                    <label for="gender" class="form-label">Gender</label>
+                    <span *ngIf="addresourceForm.get('gender')?.invalid && addresourceForm.get('gender')?.touched"
+                        class="red">
+                        Gender Required
+                    </span>
+                    <select class="form-select" aria-label="Default select example" formControlName="gender"
+                        [class.warning]="addresourceForm.get('gender')?.invalid && addresourceForm.get('gender')?.touched">
+                        <option *ngFor="let show of options" [value]="show.value">{{show.viewValue}}</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="skill" class="form-label">Skill</label>
+                    <span *ngIf="addresourceForm.get('skill')?.invalid && addresourceForm.get('skill')?.touched"
+                        class="red">
+                        Skill Required
+                    </span>
+                    <input type="text" class="form-control" formControlName="skill"
+                        [class.warning]="addresourceForm.get('skill')?.invalid && addresourceForm.get('skill')?.touched">
+                </div>
+
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <span *ngIf="addresourceForm.get('location')?.invalid && addresourceForm.get('location')?.touched"
+                        class="red">
+                        Location Required
+                    </span>
+                    <input type="text" class="form-control" formControlName="location"
+                        [class.warning]="addresourceForm.get('location')?.invalid && addresourceForm.get('location')?.touched">
+                </div>
+
+                <div formGroupName="resourceList">
+                    <div class="mb-3">
+                        <label for="id" class="form-label">Designation</label>
+                        <span *ngIf="addresourceForm.get('id')?.invalid && addresourceForm.get('id')?.touched"
+                            class="red">
+                            Designation Required
+                        </span>
+                        <select class="form-select" aria-label="Default select example" formControlName="id"
+                            [class.warning]="addresourceForm.get('id')?.invalid && addresourceForm.get('id')?.touched">
+                            <option *ngFor="let show of designationvalue">{{show}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <button type="submit" class="btn" [disabled]="addresourceForm.invalid"
+                        style="background-color:#e3832e;">Submit</button>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+</div>

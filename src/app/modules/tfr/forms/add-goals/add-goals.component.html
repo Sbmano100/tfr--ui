@@ -1,0 +1,54 @@
+
+<div class="container align">
+    <div class="row align-items-center justify-content-center mt-4 mb-4">
+        <div class="col-md-6 card shadow pt-3 pb-3 px-4">
+            <h3 class="d-flex justify-content-center">Goal</h3>
+            <form [formGroup]="addgoalsForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <span *ngIf="addgoalsForm.get('name')?.invalid && addgoalsForm.get('name')?.touched" class="red">
+                        Name Required
+                    </span>
+                    <input type="text" class="form-control"  formControlName="name"
+                        [class.warning]="addgoalsForm.get('name')?.invalid && addgoalsForm.get('name')?.touched">
+                </div>
+
+                <div class="mb-3">
+                    <label for="start_date" class="form-label">Start Date</label>
+                    <span *ngIf="addgoalsForm.get('start_date')?.invalid && addgoalsForm.get('start_date')?.touched"
+                        class="red">
+                        Date Required
+                    </span>
+                    <input type="date" class="form-control" formControlName="start_date"
+                        [class.warning]="addgoalsForm.get('start_date')?.invalid && addgoalsForm.get('start_date')?.touched">
+                </div>
+
+                <div class="mb-3">
+                    <label for="end_date" class="form-label">End Date</label>
+                    <span *ngIf="addgoalsForm.get('end_date')?.invalid && addgoalsForm.get('end_date')?.touched"
+                        class="red">
+                        Date Required
+                    </span>
+                    <input type="date" class="form-control" formControlName="end_date"
+                        [class.warning]="addgoalsForm.get('end_date')?.invalid && addgoalsForm.get('end_date')?.touched">
+                </div>
+
+                <div class="mb-3">
+                    <label for="goal_description" class="form-label">Description</label>
+                    <span *ngIf="addgoalsForm.get('goal_description')?.invalid && addgoalsForm.get('goal_description')?.touched"
+                        class="red">
+                        Description Required
+                    </span>
+                    <input type="text" class="form-control" formControlName="goal_description"
+                        [class.warning]="addgoalsForm.get('goal_description')?.invalid && addgoalsForm.get('goal_description')?.touched">
+                </div>
+
+                <div class="mb-3">
+                    <button type="submit" class="btn" [disabled]="addgoalsForm.invalid" style="background-color:#e3832e;">Submit</button>
+                </div>
+            </form>
+          
+
+        </div>
+    </div>
+</div>

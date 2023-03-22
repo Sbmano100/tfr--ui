@@ -1,0 +1,185 @@
+<div class="container ">
+    <div class="row align-items-center justify-content-center mt-4 mb-4">
+        <div class="col-md-6 card shadow pt-3 pb-3 px-4">
+            <form [formGroup]="addprojectForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <span *ngIf="addprojectForm.get('name')?.invalid && addprojectForm.get('name')?.touched"
+                        class="red">
+                        Project Name Required
+                    </span>
+                    <input type="text" class="form-control" formControlName="name"
+                        [class.warning]="addprojectForm.get('name')?.invalid && addprojectForm.get('name')?.touched">
+                </div>
+
+                <div class="mb-3">
+                    <label for="start_date" class="form-label">Start Date</label>
+                    <span class="text-danger"
+                        *ngIf="addprojectForm.get('start_date')?.invalid && addprojectForm.get('start_date')?.touched"
+                        class="red">
+                        Start Date Required
+                    </span>
+                    <input type="date" class="form-control" formControlName="start_date"
+                        [class.warning]="addprojectForm.get('start_date')?.invalid && addprojectForm.get('start_date')?.touched">
+                </div>
+
+                <div class="mb-3">
+                    <label for="end_date" class="form-label">End Date</label>
+                    <span class="text-danger"
+                        *ngIf="addprojectForm.get('end_date')?.invalid && addprojectForm.get('end_date')?.touched"
+                        class="red">
+                        End Date Required
+                    </span>
+                    <input type="date" class="form-control" formControlName="end_date"
+                        [class.warning]="addprojectForm.get('end_date')?.invalid && addprojectForm.get('end_date')?.touched">
+                </div>
+
+                <div class="mb-3">
+                    <label for="sow" class="form-label">SOW</label>
+                    <span *ngIf="addprojectForm.get('sow')?.invalid && addprojectForm.get('sow')?.touched" class="red">
+                        SOW Required
+                    </span>
+                    <input type="number" class="form-control" formControlName="sow"
+                        [class.warning]="addprojectForm.get('sow')?.invalid && addprojectForm.get('sow')?.touched">
+                </div>
+                <div formGroupName="division">
+                    <div class="mb-3">
+                        <label for="id" class="form-label">Division</label>
+                        <span *ngIf="addprojectForm.get('id')?.invalid && addprojectForm.get('id')?.touched"
+                            class="red">
+                            Division Required
+                        </span>
+                        <select class="form-select" aria-label="Default select example" formControlName="id"
+                            [class.warning]="addprojectForm.get('id')?.invalid && addprojectForm.get('id')?.touched">
+                            <option *ngFor="let show of divisionvalue">{{show}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div formGroupName="superDepartment">
+                    <div class="mb-3">
+                        <label for="id" class="form-label">Super Department</label>
+                        <span *ngIf="addprojectForm.get('id')?.invalid && addprojectForm.get('id')?.touched"
+                            class="red">
+                            Super Department Required
+                        </span>
+                        <select class="form-select" aria-label="Default select example" formControlName="id"
+                            [class.warning]="addprojectForm.get('id')?.invalid && addprojectForm.get('id')?.touched">
+                            <option *ngFor="let show of supdeptvalue">{{show}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div formGroupName="department">
+                    <div class="mb-3">
+                        <label for="id" class="form-label">Deparment</label>
+                        <span *ngIf="addprojectForm.get('id')?.invalid && addprojectForm.get('id')?.touched"
+                            class="red">
+                            Deparment Required
+                        </span>
+                        <select class="form-select" aria-label="Default select example" formControlName="id"
+                            [class.warning]="addprojectForm.get('id')?.invalid && addprojectForm.get('id')?.touched">
+                            <option *ngFor="let show of deptvalue">{{show}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div formGroupName="client">
+                    <div class="mb-3">
+                        <label for="id" class="form-label">Client(ED/MD)</label>
+                        <span *ngIf="addprojectForm.get('id')?.invalid && addprojectForm.get('id')?.touched"
+                            class="red">
+                            Client Required
+                        </span>
+                        <select class="form-select" aria-label="Default select example" formControlName="id"
+                        [class.warning]="addprojectForm.get('id')?.invalid && addprojectForm.get('id')?.touched">
+                        <option *ngFor="let show of clientvalue">{{show}}</option>
+                    </select>
+                    </div>
+                </div>
+
+                <div formGroupName="depHead">
+                    <div class="mb-3">
+                        <label for="id" class="form-label">Department Head</label>
+                        <span *ngIf="addprojectForm.get('id')?.invalid && addprojectForm.get('id')?.touched"
+                            class="red">
+                            Department Head Required
+                        </span>
+                        <input type="text" class="form-control" placeholder="email id" formControlName="id"
+                            [class.warning]="addprojectForm.get('id')?.invalid && addprojectForm.get('id')?.touched">
+                    </div>
+                </div>
+
+                <div formGroupName="projectLead">
+                    <div class="mb-3">
+                        <label for="id" class="form-label">ProjectLead</label>
+                        <span *ngIf="addprojectForm.get('id')?.invalid && addprojectForm.get('id')?.touched"
+                            class="red">
+                            Projectlead Required
+                        </span>
+                        <input type="text" class="form-control" placeholder="email id" formControlName="id"
+                            [class.warning]="addprojectForm.get('id')?.invalid && addprojectForm.get('id')?.touched">
+                    </div>
+                </div>
+
+                <div formGroupName="spoc">
+                    <div class="mb-3">
+                        <label for="id" class="form-label">Spoc</label>
+                        <span *ngIf="addprojectForm.get('id')?.invalid && addprojectForm.get('id')?.touched"
+                            class="red">
+                            Spoc Required
+                        </span>
+                        <input type="text" class="form-control" placeholder="email id" formControlName="id"
+                            [class.warning]="addprojectForm.get('id')?.invalid && addprojectForm.get('id')?.touched">
+                    </div>
+                </div>
+
+
+
+
+
+
+
+                <!-- <div class="mb-3">
+                <label for="bio" class="form-label">Bio</label>
+                <span class="text-danger" *ngIf="addprojectForm.get('bio')?.invalid && addprojectForm.get('bio')?.touched" class="red">
+                    Bio Required
+                    </span>
+                <textarea class="form-control" id="bio" rows="3" formControlName="bio" [class.is-invalid]="addprojectForm.get('bio')?.invalid && addprojectForm.get('bio')?.touched"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <span *ngIf="addprojectForm.get('domain')?.invalid && addprojectForm.get('domain')?.touched" class="red">
+                    Domain Required
+                    </span>
+                <select class="form-select" aria-label="Default select example" formControlName="domain" [class.is-invalid]="addprojectForm.get('domain')?.invalid && addprojectForm.get('domain')?.touched">
+                    <option value="">Please Select Domain</option>
+                    <option value="erp">ERP</option>
+                    <option value="crm">CRM</option>
+                    <option value="ecommerce">E-commerce</option>
+                </select>
+            </div> -->
+
+            <div class="mb-3">
+                <button type="submit" class="btn" style="background-color:#e3832e;">Submit</button>
+            </div>
+            </form>
+           
+
+        </div>
+    </div>
+</div>
+<!-- [disabled]="addprojectForm.invalid" -->
+<!-- <div id="datepicker" class="md-form md-outline input-with-post-icon datepicker" inline="true">
+    <input placeholder="Select date" type="text" id="example" class="form-control">
+    <label for="example">Try me...</label>
+    <i class="fa fa-calendar input-prefix"></i>
+  </div> -->
+<!-- <div class="input-group date" id="datepicker">
+    <input type="text" class="form-control">
+    <span class="input-group-append">
+        <span class="input-group-text bg-white">
+            <i class="fa fa-calendar"></i>
+        </span>
+    </span>
+</div> -->
